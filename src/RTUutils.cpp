@@ -108,7 +108,7 @@ uint32_t RTUutils::calculateInterval(uint32_t baudRate) {
   // silent interval is at least 3.5x character time
   interval = 35000000UL / baudRate;  // 3.5 * 10 bits * 1000 µs * 1000 ms / baud
   if (interval < 1750) interval = 1750;       // lower limit according to Modbus RTU standard
-  LOG_V("Calc interval(%u)=%u\n", baudRate, interval);
+  LOG_V("Calc interval(%lu)=%lu\n", baudRate, interval);
   return interval;
 }
 
