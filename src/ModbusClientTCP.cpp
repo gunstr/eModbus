@@ -220,7 +220,7 @@ ModbusMessage ModbusClientTCP::syncRequestMT(ModbusMessage msg, uint32_t token, 
 bool ModbusClientTCP::addToQueue(uint32_t token, ModbusMessage request, TargetHost target, bool syncReq) {
   bool rc = false;
   // Did we get one?
-  LOG_D("Queue size: %d\n", (uint32_t)requests.size());
+  LOG_D("Queue size: %ld\n", (uint32_t)requests.size());
   HEXDUMP_D("Enqueue", request.data(), request.size());
   if (request) {
     if (requests.size()<MT_qLimit) {

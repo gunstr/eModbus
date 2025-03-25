@@ -112,7 +112,7 @@ void ModbusClientRTU::end() {
     }
     // Kill task
     vTaskDelete(worker);
-    LOG_D("Client task %d killed.\n", (uint32_t)worker);
+    LOG_D("Client task %ld killed.\n", (uint32_t)worker);
     worker = nullptr;
   }
 }
@@ -120,7 +120,7 @@ void ModbusClientRTU::end() {
 // setTimeOut: set/change the default interface timeout
 void ModbusClientRTU::setTimeout(uint32_t TOV) {
   MR_timeoutValue = TOV;
-  LOG_D("Timeout set to %d\n", TOV);
+  LOG_D("Timeout set to %ld\n", TOV);
 }
 
 // Toggle protocol to ModbusASCII

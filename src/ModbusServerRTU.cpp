@@ -105,14 +105,14 @@ void ModbusServerRTU::doBegin(uint32_t baudRate, int coreID, uint32_t userInterv
   EMODBUS_SET_TASK_AFFINITY(serverTask, coreID);
 #endif
 
-  LOG_D("Server task %d started. Interval=%d\n", (uint32_t)serverTask, MSRinterval);
+  LOG_D("Server task %ld started. Interval=%ld\n", (uint32_t)serverTask, MSRinterval);
 }
 
 // end: kill server task
 void ModbusServerRTU::end() {
   if (serverTask != nullptr) {
     vTaskDelete(serverTask);
-    LOG_D("Server task %d stopped.\n", (uint32_t)serverTask);
+    LOG_D("Server task %ld stopped.\n", (uint32_t)serverTask);
     serverTask = nullptr;
   }
 }
