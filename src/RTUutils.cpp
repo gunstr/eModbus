@@ -114,6 +114,7 @@ uint32_t RTUutils::calculateInterval(uint32_t baudRate) {
 
 // send: send a message via Serial, watching interval times - including CRC!
 void RTUutils::send(Stream& serial, unsigned long& lastMicros, uint32_t interval, RTScallback rts, const uint8_t *data, uint16_t len, bool ASCIImode) {
+  interval = interval * 2;
   // Clear serial buffers
   while (serial.available()) serial.read();
   
